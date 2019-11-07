@@ -10,26 +10,24 @@ import { LoadingController } from '@ionic/angular';
 })
 export class Tab2Page {
   private page = 1;
-  
+  constructor(public movieService:MoviesService, public loadingController:LoadingController){}
   public lista_filmes = new Array<any>();
 
-  constructor(public movieService:MoviesService, public loadingController:LoadingController){}
 
-
-ionViewDidEnter() {
+  ionViewDidEnter() {
   this.carregaPagina();
   this.carregando();
 }
 
-carregaPagina () {
-  this.movieService.getPopularMovies(this.page, 'pt').subscribe(
-  data => {
-    const response = (data as any);
-    if(this.page==1){
-    this.lista_filmes = response.results;
+  carregaPagina () {
+    this.movieService.getPopularMovies(this.page, 'pt').subscribe(
+      data => {
+        const response = (data as any);
+          if(this.page==1){
+            this.lista_filmes = response.results;
     }
-    else{
-    this.lista_filmes = this.lista_filmes.concat(response.results);
+    else {
+      this.lista_filmes = this.lista_filmes.concat(response.results);
     }
     console.log(this.lista_filmes);
   },
@@ -50,20 +48,19 @@ async carregando() {
   doRefresh(event) {
     this.page = 1;
     this.carregaPagina();
-    console.log('Iniciando Operação Assíncrona');
+    console.log('Iniciando operação assíncrona');
 
     setTimeout(() => {
       event.target.complete();
-      console.log('Finalizando refresh');
-  }, 500);
+      console.log('finalizando refresh');
+  }, 1000);
   }
 
   loadData(event) {
-
     this.page++;
     this.carregaPagina();
     setTimeout(() => {
       event.target.complete();
-    }, 1000);
+    }, 10000);
   }
 }

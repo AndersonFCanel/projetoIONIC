@@ -23,5 +23,11 @@
           {{filme.overview}}
         </ion-card-content>
   </ion-card>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Carregando mais filmes...">
+      </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
 
-</ion-content>
+  </ion-content>
