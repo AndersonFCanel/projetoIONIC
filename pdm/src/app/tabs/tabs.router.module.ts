@@ -7,6 +7,7 @@ const routes: Routes = [
     path: 'tabs',
     component: TabsPage,
     children: [
+      { path: '', redirectTo: '../login/login', pathMatch: 'full' },
       {
         path: 'home',
         children: [
@@ -38,18 +39,20 @@ const routes: Routes = [
         ]
       },
       
-      {
+      /*{
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/home',
         pathMatch: 'full'
-      }
+      }*/
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
     ]
   },
-  {
+  /*{
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/home',
     pathMatch: 'full'
-  }
+  }*/
+  { path: '', redirectTo: '../login/login', pathMatch: 'full' },
 ];
 
 @NgModule({

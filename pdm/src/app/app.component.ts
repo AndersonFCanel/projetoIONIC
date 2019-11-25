@@ -15,14 +15,20 @@ export class AppComponent {
   public appPages = [
     
     {
-      title: 'login',
-      url: '/login',
-      icon: 'login'
+      title: 'Home',
+      url: '/tabs/home',
+      icon: 'home'
     },
     {
-      title: 'home',
-      url: '/home',
-      icon: 'home'
+      title: 'Feed',
+      url: '/tabs/tab2',
+      icon: 'paper'
+    },
+    
+    {
+      title: 'Sair',
+      url: '/login',
+      icon: 'exit'
     },
     {
       title: 'Cadastro',
@@ -30,10 +36,11 @@ export class AppComponent {
       icon: 'person-add'
     },
     {
-      title: 'Sair',
+      title: 'Login',
       url: '/login',
-      icon: 'exit'
-    }
+      icon: 'home'
+    },
+    
   ];
 
   constructor(
