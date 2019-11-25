@@ -24,7 +24,7 @@ export class LoginPage implements OnInit {
     try{
       const res= await this.afAuth.auth.signInWithEmailAndPassword(login + '@souunisuam.com.br', senha)
       console.log(res)
-			this.router.navigateByUrl('/feed')
+			this.router.navigateByUrl('/tabs/tab1')
 
     } catch(err){
       console.dir(err)
