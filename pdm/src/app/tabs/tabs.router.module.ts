@@ -7,7 +7,7 @@ const routes: Routes = [
     path: 'tabs',
     component: TabsPage,
     children: [
-      { path: '', redirectTo: '../login/login', pathMatch: 'full' },
+      
       {
         path: 'home',
         children: [
@@ -39,20 +39,32 @@ const routes: Routes = [
         ]
       },
       
-      /*{
+      {
         path: '',
-        redirectTo: '/tabs/home',
-        pathMatch: 'full'
-      }*/
-      { path: '', redirectTo: 'login', pathMatch: 'full' },
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../home/home.module').then(m => m.HomePageModule)
+          }
+        ]
+      },
+     ]
+  },
+  {
+    path: '',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('../home/home.module').then(m => m.HomePageModule)
+      }
     ]
   },
-  /*{
-    path: '',
-    redirectTo: '/tabs/home',
-    pathMatch: 'full'
-  }*/
-  { path: '', redirectTo: '../login/login', pathMatch: 'full' },
+  
+
+  { path: 'cadastro', loadChildren: '../cadastro/cadastro.module#CadastroPageModule' },
+  { path: 'menu', loadChildren: '../menu/menu.module#MenuPageModule' },
 ];
 
 @NgModule({

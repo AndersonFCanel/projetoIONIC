@@ -16,12 +16,12 @@ export class AppComponent {
     
     {
       title: 'Home',
-      url: '/tabs/home',
+      url: '/home',
       icon: 'home'
     },
     {
       title: 'Feed',
-      url: '/tabs/tab2',
+      url: '/tab2',
       icon: 'paper'
     },
     
@@ -34,11 +34,6 @@ export class AppComponent {
       title: 'Cadastro',
       url: '/cadastro',
       icon: 'person-add'
-    },
-    {
-      title: 'Login',
-      url: '/login',
-      icon: 'home'
     },
     
   ];
