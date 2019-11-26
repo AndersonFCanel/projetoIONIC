@@ -9,6 +9,11 @@ import { LoadingController, MenuController } from '@ionic/angular';
   providers: [MoviesService]
 })
 export class Tab2Page {
+  
+  ngOnInit() {
+    this.ionViewDidLeave();
+    }
+    
   private page = 1;
   constructor( public menu: MenuController, public movieService:MoviesService, public loadingController:LoadingController){}
   public lista_filmes = new Array<any>();
@@ -18,7 +23,10 @@ export class Tab2Page {
   this.carregaPagina();
   this.carregando();
 }
-
+ionViewDidLeave() {
+  // enable the root left menu when leaving the tutorial page
+  this.menu.enable(true);
+}
   carregaPagina () {
     this.movieService.getPopularMovies(this.page, 'pt').subscribe(
       data => {
@@ -65,8 +73,4 @@ async carregando() {
   }
 
 
-  ionViewDidLeave() {
-    // enable the root left menu when leaving the tutorial page
-    this.menu.enable(true);
-  }
 }

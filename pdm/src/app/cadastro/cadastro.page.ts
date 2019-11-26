@@ -18,8 +18,10 @@ export class CadastroPage implements OnInit {
 
   constructor( public menu: MenuController,/*public afAuth: AngularFireAuth,*/  public alert: AlertController, public router: Router) { }
 
+  
   ngOnInit() {
-  }
+    this.ionViewDidLeave();
+    }
 
   async cadastro() {
     const { nome, email, login, senha, confsenha} = this
@@ -30,7 +32,9 @@ export class CadastroPage implements OnInit {
     try{
       //const res = await this.afAuth.auth.createUserWithEmailAndPassword(login + '@souunisuam.com.br', senha)
       //console.log(res)
-			this.router.navigateByUrl('/home')
+      
+      this.menu.enable(false);
+			this.router.navigateByUrl('/login')
     }catch(error){
       console.dir(error)
 

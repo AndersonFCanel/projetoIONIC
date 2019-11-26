@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor( ) {}
-
+ 
+  constructor(public menu: MenuController ) {}
+  /*ionViewDidLeave() {
+    // enable the root left menu when leaving the tutorial page
+    this.menu.enable(true);
+  }*/
 }

@@ -15,15 +15,18 @@ export class LoginPage implements OnInit {
 
   constructor(/*public afAuth: AngularFireAuth,*/  public menu: MenuController,  public alert: AlertController, public router: Router) {}
 
-  ngOnInit(){
 
-  }
-  async home(){
+  ngOnInit() {
+    this.ionViewDidLeave();
+    }
+    
+    async home(){
     const{login,senha}=this
     try{
       //const res= await this.afAuth.auth.signInWithEmailAndPassword(login + '@souunisuam.com.br', senha)
       //console.log(res)
-			this.router.navigateByUrl('/tabs/tabs')
+      this.menu.enable(true);
+      this.router.navigateByUrl('/tabs/tabs')
 
     } catch(err){
       console.dir(err)

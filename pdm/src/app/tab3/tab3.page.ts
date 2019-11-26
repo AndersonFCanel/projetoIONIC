@@ -9,6 +9,11 @@ import { LoadingController, MenuController } from '@ionic/angular';
   providers: [MoviesService]
 })
 export class Tab3Page {
+
+  ngOnInit() {
+    this.ionViewDidLeave();
+    }
+
   private page = 1;
   constructor( public menu: MenuController, public movieService:MoviesService, public loadingController:LoadingController){}
  
@@ -18,7 +23,10 @@ export class Tab3Page {
   this.carregaPagina();
   this.carregando();
 }
-
+ionViewDidLeave() {
+  // enable the root left menu when leaving the tutorial page
+  this.menu.enable(true);
+}
   carregaPagina () {
     this.movieService.getExibicaoNoMomento(this.page, 'pt').subscribe(
       data => {
@@ -64,8 +72,5 @@ async carregando() {
     }, 10000);
   }
 
-  ionViewDidLeave() {
-    // enable the root left menu when leaving the tutorial page
-    this.menu.enable(true);
-}
+ 
 }
