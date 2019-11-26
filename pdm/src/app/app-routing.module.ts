@@ -6,7 +6,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
 
 
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  //{ path: '', redirectTo: 'tabs', pathMatch: 'full' },
   
   /*{
     path: '',
@@ -14,15 +14,15 @@ const routes: Routes = [
   },*/
 
 
-  /*{
+  {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  },*/
+  },
 
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
-  { path: 'tab2', loadChildren: './tab2/tab2.module#Tab2PageModule' },
+  //{ path: 'home', loadChildren: './home/home.module#HomePageModule' },
+  //{ path: 'tab2', loadChildren: './tab2/tab2.module#Tab2PageModule' },
   { path: 'cadastro', loadChildren: './cadastro/cadastro.module#CadastroPageModule' },
   { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' },
 

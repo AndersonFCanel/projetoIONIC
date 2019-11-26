@@ -29,6 +29,27 @@ const routes: Routes = [
           }
         ]
       },
+
+      {
+        path: 'login',// redirectTo: 'login' 
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../login/login.module').then(m => m.LoginPageModule)
+          }
+        ]
+      },
+      {
+        path: 'cadastro',  redirectTo: 'cadastro' 
+        /*children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../cadastro/cadastro.module').then(m => m.CadastroPageModule)
+          }
+        ]*/
+      },
       {
       path: '',
       children: [
@@ -41,7 +62,7 @@ const routes: Routes = [
     },
   ]
   },  
-  {
+ /* {
     path: '',
     children: [
       {
@@ -50,7 +71,7 @@ const routes: Routes = [
           import('../home/home.module').then(m => m.HomePageModule)
       }
     ]
-  },
+  },*/
   {
     path: 'home',  redirectTo: 'tabs/home'
     /*children: [
@@ -72,7 +93,18 @@ const routes: Routes = [
     ]*/
   },
   {
-    path: 'login', 
+    path: '', //redirectTo: 'login' 
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+        //import('../home/home.module').then(m => m.HomePageModule)
+        import('../login/login.module').then(m => m.LoginPageModule)
+      }
+    ]
+  },
+  {
+    path: 'login',// redirectTo: 'login' 
     children: [
       {
         path: '',
@@ -82,17 +114,16 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'cadastro', 
-    children: [
+    path: 'cadastro',  redirectTo: 'cadastro' 
+    /*children: [
       {
         path: '',
         loadChildren: () =>
           import('../cadastro/cadastro.module').then(m => m.CadastroPageModule)
       }
-    ]
+    ]*/
   },
   { path: 'menu', loadChildren: '../menu/menu.module#MenuPageModule' },
-  
 ];
 
 @NgModule({
