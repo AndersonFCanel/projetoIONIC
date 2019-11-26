@@ -18,7 +18,7 @@ const routes: Routes = [
           }
         ]
       },
-      {
+      /*{
         path: 'tab1',
         children: [
           {
@@ -27,7 +27,7 @@ const routes: Routes = [
               import('../tab1/tab1.module').then(m => m.Tab1PageModule)
           }
         ]
-      },
+      },*/
       {
         path: 'tab2',
         children: [
@@ -52,18 +52,51 @@ const routes: Routes = [
      ]
   },
   {
-    path: '',
+    /*path: '',
     children: [
       {
         path: '',
         loadChildren: () =>
           import('../home/home.module').then(m => m.HomePageModule)
       }
-    ]
+    ]*/
+     path: '', redirectTo: '/tabs/home', pathMatch: 'full' 
   },
-  
-
-  { path: 'cadastro', loadChildren: '../cadastro/cadastro.module#CadastroPageModule' },
+{
+/*  path: 'home',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('../home/home.module').then(m => m.HomePageModule)
+      }
+    ]*/
+     path: '', redirectTo: '/tabs/home', pathMatch: 'full' 
+  },
+  {
+    path: 'cadastro',
+      children: [
+        {
+          path: '',
+          loadChildren: () =>
+            import('../cadastro/cadastro.module').then(m => m.CadastroPageModule)
+        }
+      ]
+    },
+    {
+      /*path: 'tab2',
+      children: [
+        {
+          path: '',
+          loadChildren: () =>
+            import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        }
+      ]*/
+      
+     path: 'tabs2', redirectTo: '/tabs/tabs2', pathMatch: 'full' 
+      
+    },
+    
   { path: 'menu', loadChildren: '../menu/menu.module#MenuPageModule' },
 ];
 
