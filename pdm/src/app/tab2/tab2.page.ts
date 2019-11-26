@@ -1,6 +1,6 @@
 import { MoviesService } from './../theMovieDB/movies.service';
 import { Component } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -10,7 +10,7 @@ import { LoadingController } from '@ionic/angular';
 })
 export class Tab2Page {
   private page = 1;
-  constructor(public movieService:MoviesService, public loadingController:LoadingController){}
+  constructor( public menu: MenuController, public movieService:MoviesService, public loadingController:LoadingController){}
   public lista_filmes = new Array<any>();
 
 

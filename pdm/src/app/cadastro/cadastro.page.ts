@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,7 +16,7 @@ export class CadastroPage implements OnInit {
   senha: string = ""
   confsenha: string = ""
 
-  constructor( public afAuth: AngularFireAuth,  public alert: AlertController, public router: Router) { }
+  constructor( public menu: MenuController,/*public afAuth: AngularFireAuth,*/  public alert: AlertController, public router: Router) { }
 
   ngOnInit() {
   }
@@ -28,13 +28,17 @@ export class CadastroPage implements OnInit {
     }
 
     try{
-      const res = await this.afAuth.auth.createUserWithEmailAndPassword(login + '@souunisuam.com.br', senha)
-      console.log(res)
+      //const res = await this.afAuth.auth.createUserWithEmailAndPassword(login + '@souunisuam.com.br', senha)
+      //console.log(res)
 			this.router.navigateByUrl('/home')
     }catch(error){
       console.dir(error)
 
     }
+  }
+  ionViewDidLeave() {
+    // enable the root left menu when leaving the tutorial page
+    this.menu.enable(false);
   }
 
 }

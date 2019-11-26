@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ export class LoginPage implements OnInit {
   login: string=""
   senha: string=""
 
-  constructor(/*public afAuth: AngularFireAuth, */ public alert: AlertController, public router: Router) {}
+  constructor(/*public afAuth: AngularFireAuth,*/  public menu: MenuController,  public alert: AlertController, public router: Router) {}
 
   ngOnInit(){
 
@@ -32,5 +32,10 @@ export class LoginPage implements OnInit {
 
       }
     }
+  }
+
+  ionViewDidLeave() {
+    // enable the root left menu when leaving the tutorial page
+    this.menu.enable(false);
   }
 }
