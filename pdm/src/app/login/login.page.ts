@@ -13,7 +13,7 @@ export class LoginPage implements OnInit {
   login: string=""
   senha: string=""
 
-  constructor(/*public afAuth: AngularFireAuth,*/  public menu: MenuController,  public alert: AlertController, public router: Router) {}
+  constructor( /*afAuth: AngularFireAuth,*/  public menu: MenuController,  public alert: AlertController, public router: Router) {}
 
 
   ngOnInit() {
@@ -22,9 +22,20 @@ export class LoginPage implements OnInit {
     
     async home(){
     const{login,senha}=this
-    try{
-      //const res= await this.afAuth.auth.signInWithEmailAndPassword(login + '@souunisuam.com.br', senha)
-      //console.log(res)
+
+    if(login == "admin" && senha =="admin"){
+
+
+    }else{
+
+      console.log("Usuário não encontrado")
+
+    }
+
+
+    /*try{
+      const res= await this.afAuth.auth.signInWithEmailAndPassword(login + '@souunisuam.com.br', senha)
+      console.log(res)
       this.menu.enable(true);
       this.router.navigateByUrl('/tabs/tabs')
 
@@ -34,7 +45,7 @@ export class LoginPage implements OnInit {
           console.log("Usuário não encontrado")
 
       }
-    }
+    }*/
   }
 
   ionViewDidLeave() {

@@ -25,7 +25,7 @@ export class CadastroPage implements OnInit {
 
   async cadastro() {
     const { nome, email, login, senha, confsenha} = this
-    if(senha !==confsenha){
+    if(senha !== confsenha){
       return console.error("Senhas diferentes")
     }
 
