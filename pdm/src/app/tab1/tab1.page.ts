@@ -9,4 +9,9 @@ import { Component } from '@angular/core';
 export class Tab1Page {
 
   constructor( public menu: MenuController){}
+
+  ionViewDidLeave() {
+    // enable the root left menu when leaving the tutorial page
+    this.menu.enable(true);
+  }
 }

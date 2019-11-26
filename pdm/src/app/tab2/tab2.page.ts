@@ -63,4 +63,10 @@ async carregando() {
       event.target.complete();
     }, 10000);
   }
+
+
+  ionViewDidLeave() {
+    // enable the root left menu when leaving the tutorial page
+    this.menu.enable(true);
+  }
 }

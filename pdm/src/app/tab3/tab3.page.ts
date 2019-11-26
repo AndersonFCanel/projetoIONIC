@@ -11,8 +11,8 @@ import { LoadingController, MenuController } from '@ionic/angular';
 export class Tab3Page {
   private page = 1;
   constructor( public menu: MenuController, public movieService:MoviesService, public loadingController:LoadingController){}
+ 
   public lista_filmes = new Array<any>();
-
 
   ionViewDidEnter() {
   this.carregaPagina();
@@ -63,4 +63,9 @@ async carregando() {
       event.target.complete();
     }, 10000);
   }
+
+  ionViewDidLeave() {
+    // enable the root left menu when leaving the tutorial page
+    this.menu.enable(true);
+}
 }
