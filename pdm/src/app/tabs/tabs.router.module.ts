@@ -29,17 +29,29 @@ const routes: Routes = [
           }
         ]
       },
-
+      {
+        path: 'tab3',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+          }
+        ]
+      },
+      /*
       {
         path: 'login',// redirectTo: 'login' 
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../login/login.module').then(m => m.LoginPageModule)
-          }
+              import('../login-t/login-t.module').then(m => m.LoginTPageModule)
+             //import('../login/login.module').then(m => m.LoginPageModule)
+     
+            }
         ]
-      },
+      },*/
       {
         path: 'cadastro',  redirectTo: 'cadastro' 
         /*children: [
@@ -93,6 +105,16 @@ const routes: Routes = [
     ]*/
   },
   {
+    path: 'tab3',  redirectTo: 'tabs/tab3'
+    /*children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('../home/home.module').then(m => m.HomePageModule)
+      }
+    ]*/
+  },
+  {
     path: '', //redirectTo: 'login' 
     children: [
       {
@@ -100,6 +122,7 @@ const routes: Routes = [
         loadChildren: () =>
         //import('../home/home.module').then(m => m.HomePageModule)
         import('../login/login.module').then(m => m.LoginPageModule)
+       
       }
     ]
   },
@@ -110,7 +133,7 @@ const routes: Routes = [
         path: '',
         loadChildren: () =>
           import('../login/login.module').then(m => m.LoginPageModule)
-      }
+        }
     ]
   },
   {

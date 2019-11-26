@@ -10,6 +10,12 @@ export class MoviesService {
 
   constructor(public http: HttpClient) { }
 
+  public getExibicaoNoMomento(page=1, language="eng"){
+    let fil= `${this.caminhoPadrao}movie/now_playing?page=${page}&language=${language}&api_key=${this.chave}`;
+    console.log(fil);
+    return this.http.get(fil);
+  }
+
   public getPopularMovies(page=1, language="eng"){
     let filmes= `${this.caminhoPadrao}movie/popular?page=${page}&language=${language}&api_key=${this.chave}`;
     console.log(filmes);

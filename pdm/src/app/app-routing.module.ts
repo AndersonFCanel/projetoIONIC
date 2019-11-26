@@ -26,6 +26,7 @@ const routes: Routes = [
   { path: 'cadastro', loadChildren: './cadastro/cadastro.module#CadastroPageModule' },
   { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' },
 
+
   /*
   { path: 'feed', loadChildren: './feed/feed.module#FeedPageModule' },*/
 ];

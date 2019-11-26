@@ -22,9 +22,13 @@ export class AppComponent {
     {
       title: 'Feed',
       url: '/tabs/tab2',
-      icon: 'paper'
+      icon: 'film'
     },
-    
+    {
+      title: 'Em Exibicao',
+      url: '/tabs/tab3',
+      icon: 'film'
+    },
     {
       title: 'Sair',
       url: 'tabs/login',
