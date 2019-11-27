@@ -37,11 +37,11 @@ export class AppComponent {
       url: 'tabs/login',
       icon: 'exit'
     },
-    {
+    /*{
       title: 'Cadastro',
       url: '/cadastro',
       icon: 'person-add'
-    },
+    },*/
     
   ];
 
