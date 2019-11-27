@@ -1,3 +1,4 @@
+import { LoginService } from './../login.service';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AlertController, MenuController } from '@ionic/angular';
@@ -10,10 +11,17 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  login: string=""
-  senha: string=""
+ //public login: string;
+  //public senha: string;
+  public login ;
+  public senha ;
 
-  constructor( /*afAuth: AngularFireAuth,*/  public menu: MenuController,  public alert: AlertController, public router: Router) {}
+  constructor( /*afAuth: AngularFireAuth,*/ public ls: LoginService, public menu: MenuController,  public alert: AlertController, public router: Router) {
+
+    this.login = this.ls.Login;
+    this.senha = this.ls.Senha;
+    
+  }
 
 
   ngOnInit() {
@@ -23,9 +31,10 @@ export class LoginPage implements OnInit {
     async home(){
     const{login,senha}=this
 
-    if(login == "admin" && senha =="admin"){
+    if(login == this.ls.Senha && senha ==this.ls.Senha){
 
-
+      this.menu.enable(true);
+      this.router.navigateByUrl('/tabs/tabs')
     }else{
 
       console.log("Usuário não encontrado")
