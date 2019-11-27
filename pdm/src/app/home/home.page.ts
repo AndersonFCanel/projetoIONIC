@@ -16,7 +16,10 @@ export class HomePage {
   ngOnInit() {
     this.ionViewDidLeave();
     }
-  constructor(public menu: MenuController) {}
+  constructor(public menu: MenuController) {
+
+    this.menu.enable(true);
+  }
   ionViewDidLeave() {
     // enable the root left menu when leaving the tutorial page
     this.menu.enable(true);

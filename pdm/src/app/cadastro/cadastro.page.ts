@@ -25,6 +25,7 @@ export class CadastroPage implements OnInit {
 
     //.login = this.ls.Login;
     //this.senha = this.ls.Senha;
+    this.menu.enable(false);
 
    }
 

@@ -34,7 +34,7 @@ export class AppComponent {
     },
     {
       title: 'Sair',
-      url: 'tabs/login',
+      url: '/tabs/login',
       icon: 'exit'
     },
     /*{

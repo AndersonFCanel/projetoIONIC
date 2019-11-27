@@ -20,7 +20,9 @@ export class LoginPage implements OnInit {
 
  // constructor( /*afAuth: AngularFireAuth,*/ public ls: LoginService, public menu: MenuController,  public alert: AlertController, public router: Router) {
     constructor( public afAuth: AngularFireAuth, public menu: MenuController,  public alert: AlertController, public router: Router) {
-  }
+      this.menu.enable(false);
+  
+    }
 
   
   ngOnInit() {
@@ -53,7 +55,7 @@ export class LoginPage implements OnInit {
       console.dir(err)
       if(err.code === "auth/user-not-found"){
           console.log("Usuário não encontrado")
-
+this.alert.create();
       }
     }
   }
