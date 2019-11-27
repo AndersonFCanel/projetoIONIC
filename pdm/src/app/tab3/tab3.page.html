@@ -6,13 +6,13 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-content>
+  <ion-content color="dark">
   
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
     
-    <ion-card *ngFor="let filme of lista_filmes">
+    <ion-card *ngFor="let filme of lista_filmes" color="dark">
           <ion-card-header>
             <ion-img [src]="'https://image.tmdb.org/t/p/w200/'+filme.backdrop_path"></ion-img>
             <ion-card-subtitle>{{filme.release_date}}</ion-card-subtitle>

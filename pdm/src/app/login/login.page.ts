@@ -4,6 +4,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AlertController, MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
+import config from '../firebase';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -11,26 +13,25 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
- //public login: string;
-  //public senha: string;
-  public login ;
-  public senha ;
+ public login: string;
+  public senha: string;
+  //public login ;
+  //public senha ;
 
-  constructor( /*afAuth: AngularFireAuth,*/ public ls: LoginService, public menu: MenuController,  public alert: AlertController, public router: Router) {
-
-    this.login = this.ls.Login;
-    this.senha = this.ls.Senha;
-    
+ // constructor( /*afAuth: AngularFireAuth,*/ public ls: LoginService, public menu: MenuController,  public alert: AlertController, public router: Router) {
+    constructor( public afAuth: AngularFireAuth, public menu: MenuController,  public alert: AlertController, public router: Router) {
   }
 
-
+  
   ngOnInit() {
+    console.log(config);
+  
     this.ionViewDidLeave();
     }
     
     async home(){
     const{login,senha}=this
-
+/*
     if(login == this.ls.Senha && senha ==this.ls.Senha){
 
       this.menu.enable(true);
@@ -40,9 +41,9 @@ export class LoginPage implements OnInit {
       console.log("Usuário não encontrado")
 
     }
+*/
 
-
-    /*try{
+    try{
       const res= await this.afAuth.auth.signInWithEmailAndPassword(login + '@souunisuam.com.br', senha)
       console.log(res)
       this.menu.enable(true);
@@ -54,7 +55,7 @@ export class LoginPage implements OnInit {
           console.log("Usuário não encontrado")
 
       }
-    }*/
+    }
   }
 
   ionViewDidLeave() {

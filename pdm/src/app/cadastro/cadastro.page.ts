@@ -13,14 +13,18 @@ export class CadastroPage implements OnInit {
 
   nome: string = ""
   email: string = ""
-  public login ;
-  public senha ;
-  public confsenha;
+  login : string = "";
+  senha : string = "";
+  confsenha: string = "";
+  
+  //public login ;
+  //public senha ;
+  //public confsenha;
 
-  constructor(/*public afAuth: AngularFireAuth,*/ public ls: LoginService, public menu: MenuController,  public alert: AlertController, public router: Router) {
+  constructor(public afAuth: AngularFireAuth, public ls: LoginService, public menu: MenuController,  public alert: AlertController, public router: Router) {
 
-    this.login = this.ls.Login;
-    this.senha = this.ls.Senha;
+    //.login = this.ls.Login;
+    //this.senha = this.ls.Senha;
 
    }
 
@@ -37,12 +41,12 @@ export class CadastroPage implements OnInit {
       return console.error("Senhas diferentes")
     }
 
-    this.ls.Login = login;
+    /*this.ls.Login = login;
     this.ls.Senha = senha;
     this.menu.enable(false);
     this.router.navigateByUrl('/login')
+*/
 
-/*
     try{
       const res = await this.afAuth.auth.createUserWithEmailAndPassword(login + '@souunisuam.com.br', senha)
       console.log(res)
@@ -52,9 +56,17 @@ export class CadastroPage implements OnInit {
     }catch(error){
       console.dir(error)
 
-    }*/
+    }
 
   }
+
+
+  async voltar() { 
+   
+      this.menu.enable(false);
+			this.router.navigateByUrl('/login')
+  }
+
   ionViewDidLeave() {
     // enable the root left menu when leaving the tutorial page
     this.menu.enable(false);
