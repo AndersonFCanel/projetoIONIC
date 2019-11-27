@@ -6,8 +6,8 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class LoginService {
 
-private login: string ;
-private senha: string ;
+private login;
+private senha ;
 
   constructor() {
     this.login = "";
