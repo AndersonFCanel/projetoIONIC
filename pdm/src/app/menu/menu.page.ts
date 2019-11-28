@@ -6,7 +6,7 @@ import { MenuController } from '@ionic/angular';
   templateUrl: './menu.page.html',
   styleUrls: ['./menu.page.scss'],
 })
-export class MenuPage implements OnInit {
+export class MenuPage {//implements OnInit {
 
   constructor() { }
 
@@ -17,19 +17,18 @@ export class MenuPage implements OnInit {
 export class MenuExample {
 
   constructor(private menu: MenuController) { }
-  
-    openFirst() {
-      this.menu.enable(true, 'first');
-      this.menu.open('first');
-    }
-  
-    openEnd() {
-      this.menu.open('end');
-    }
-  
-    openCustom() {
-      this.menu.enable(true, 'custom');
-      this.menu.open('custom');
-    }
+
+  openFirst() {
+    this.menu.enable(true, 'first');
+    this.menu.open('first');
   }
-  
+
+  openEnd() {
+    this.menu.open('end');
+  }
+
+  openCustom() {
+    this.menu.enable(true, 'custom');
+    this.menu.open('custom');
+  }
+}

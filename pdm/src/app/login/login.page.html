@@ -3,28 +3,34 @@
   <h2>APP Cineminha</h2>
   <div class="ion-padding"></div>
   <ion-card-header color="dark">
-    <img src="assets/img/logoapp.png"  alt="Feed de filmes - Cinema"/>
+    <img src="assets/img/logoapp.png" alt="Feed de filmes - Cinema" />
   </ion-card-header>
 
- 
-  <div class="ion-padding"></div>
+
+  <!-- <div class="ion-padding"></div> -->
+
+  <div *ngIf="!checaValoresInformados()">
+    <p>Usuário ou Senha inválida!!!</p>
+  </div>
+
+  <div class="ion-padding">
+    <ion-item color="dark">
+      <ion-label position="floating">Login</ion-label>
+      <ion-input type="text" [(ngModel)]="login"></ion-input>
+    </ion-item>
+
+    <ion-item color="dark">
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="senha"></ion-input>
+    </ion-item>
+  </div>
 
 
-<div class="ion-padding">
-<ion-item color="dark" >
-  <ion-label position="floating">Login</ion-label>
-  <ion-input type="text" [(ngModel)]="login"></ion-input>
-</ion-item>
+  <div class="ion-padding">
+    <ion-button color="success" expand="full" (click)='home()'>Entrar</ion-button>
+    <ion-button [routerLink]="['/cadastro']" routerdirection="forward" color="primary" expand="full">Cadastrar
+    </ion-button>
+  </div>
 
-<ion-item color="dark">
-  <ion-label position="floating">Senha</ion-label>
-  <ion-input  type="password" [(ngModel)]="senha"></ion-input>
-</ion-item>
-</div>
-
-<div class="ion-padding">
-<ion-button color="success" expand="full" (click)='home()'>Entrar</ion-button>
-<ion-button [routerLink]="['/cadastro']" routerdirection="forward" color="primary" expand="full">Cadastrar</ion-button>
-</div>
 
 </ion-content>
