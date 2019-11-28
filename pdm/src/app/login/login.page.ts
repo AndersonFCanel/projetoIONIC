@@ -5,7 +5,6 @@ import { AlertController, MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 import config from '../firebase';
-import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +16,7 @@ export class LoginPage implements OnInit {
   public login: string;
   public senha: string;
   public validado: boolean;
+  public msg: string;
   //public login ;
   //public senha ;
 
@@ -24,6 +24,9 @@ export class LoginPage implements OnInit {
   constructor(public afAuth: AngularFireAuth, public menu: MenuController, public alert: AlertController, public router: Router) {
     this.menu.enable(false);
     this.validado = true;
+    this.msg ="";
+    this.senha = "";
+    this.login = "";
   }
 
 
@@ -56,15 +59,25 @@ export class LoginPage implements OnInit {
 
     } catch (err) {
       console.dir(err)
+      this.msg = "Senha Inválida!";
+     
       if (err.code === "auth/user-not-found") {
-        console.log("Usuário não encontrado")
+        console.log("Usuário não encontrado!")
         this.alert.create;
+        this.msg = "Usuário não encontrado!";
         this.validado = false;
       }
+        
       this.validado = false;
     }
   }
 
+  dangerClass() {
+    if (this.validado) {
+    } else {
+      return "form-control alert alert-danger border-danger  ";
+    }
+  }
 
   ionViewDidLeave() {
     // enable the root left menu when leaving the tutorial page
