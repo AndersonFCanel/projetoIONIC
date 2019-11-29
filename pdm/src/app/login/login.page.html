@@ -9,10 +9,6 @@
 
   <!-- <div class="ion-padding"></div> -->
 
-  <div *ngIf="!checaValoresInformados()">
-    <p>{{msg}}</p>
-  </div>
-
   <div class="ion-padding">
     <ion-item color="dark">
       <ion-label position="floating">Login</ion-label>
@@ -24,7 +20,10 @@
       <ion-input type="password" [(ngModel)]="senha" > </ion-input>
     </ion-item>
   </div>
-
+  
+  <div *ngIf="!checaValoresInformados()"  [class]="corBotao" >
+    <p>{{msg}}</p>
+  </div>
 
   <div class="ion-padding">
     <ion-button color="success" expand="full" (click)='home()'>Entrar</ion-button>

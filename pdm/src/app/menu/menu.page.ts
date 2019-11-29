@@ -8,27 +8,21 @@ import { MenuController } from '@ionic/angular';
 })
 export class MenuPage {//implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
-export class MenuExample {
 
   constructor(private menu: MenuController) { }
-
-  openFirst() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
+  
+    openFirst() {
+      this.menu.enable(true, 'first');
+      this.menu.open('first');
+    }
+  
+    openEnd() {
+      this.menu.open('end');
+    }
+  
+    openCustom() {
+      this.menu.enable(true, 'custom');
+      this.menu.open('custom');
+    }
   }
-
-  openEnd() {
-    this.menu.open('end');
-  }
-
-  openCustom() {
-    this.menu.enable(true, 'custom');
-    this.menu.open('custom');
-  }
-}
+  

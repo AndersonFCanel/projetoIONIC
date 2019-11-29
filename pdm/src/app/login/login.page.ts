@@ -4,7 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AlertController, MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
-import config from '../firebase';
+//import config from '../firebase';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +17,7 @@ export class LoginPage implements OnInit {
   public senha: string;
   public validado: boolean;
   public msg: string;
+  public corBotao: string;
   //public login ;
   //public senha ;
 
@@ -27,17 +28,17 @@ export class LoginPage implements OnInit {
     this.msg ="";
     this.senha = "";
     this.login = "";
+    this.corBotao = "erro";
   }
 
 
   ngOnInit() {
-    console.log(config);
-
-    this.ionViewDidLeave();
+    //console.log(config);
+    this.menu.enable(false);
   }
 
   async home() {
-    const { login, senha } = this
+    let { login, senha } = this
     /*
         if(login == this.ls.Senha && senha ==this.ls.Senha){
     
@@ -51,18 +52,22 @@ export class LoginPage implements OnInit {
     */
 
     try {
-      const res = await this.afAuth.auth.signInWithEmailAndPassword(login + '@souunisuam.com.br', senha)
-      console.log(res)
-      this.validado = true;
       this.menu.enable(true);
+      this.validado = false;
+      this.msg = "Conectando";
+      this.corBotao = "conec";
+      const res = await this.afAuth.auth.signInWithEmailAndPassword(login + '@souunisuam.com.br', senha)
+      //console.log(res)
+      this.validado = true;
       this.router.navigateByUrl('/tabs/tabs')
 
     } catch (err) {
-      console.dir(err)
+      this.corBotao = "erro";
+      //console.dir(err)
       this.msg = "Senha Inválida!";
      
       if (err.code === "auth/user-not-found") {
-        console.log("Usuário não encontrado!")
+        //console.log("Usuário não encontrado!")
         this.alert.create;
         this.msg = "Usuário não encontrado!";
         this.validado = false;
@@ -72,19 +77,11 @@ export class LoginPage implements OnInit {
     }
   }
 
-  dangerClass() {
-    if (this.validado) {
-    } else {
-      return "form-control alert alert-danger border-danger  ";
-    }
-  }
-
-  ionViewDidLeave() {
-    // enable the root left menu when leaving the tutorial page
-    this.menu.enable(false);
-  }
-
+  
   checaValoresInformados() {
     return this.validado;
   }
+  
+  
+
 }
