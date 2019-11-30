@@ -18,19 +18,15 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 const config = {
-  // SUBSTITUIR COM AS SUAS INFORMAÇÕES DO FIREBASE
- 
-
-  apiKey: "AIzaSyAU7NHMnqeCJjOiywbLR6qQpkcB0u6Kn5M",
-  authDomain: "trabalho-dm.firebaseapp.com",
-  databaseURL: "https://trabalho-dm.firebaseio.com",
-  projectId: "trabalho-dm",
-  storageBucket: "trabalho-dm.appspot.com",
-  messagingSenderId: "407124126676",
-  appId: "1:407124126676:web:36bdc16b817e33229e4441",
-  measurementId: "G-5GE2DFY95Q"
-
-}
+  apiKey: "AIzaSyC9ws8aE-LHaVJXVnbhbxYAx1IyrSpUfms",
+  authDomain: "projeto-dm-2e7e3.firebaseapp.com",
+  databaseURL: "https://projeto-dm-2e7e3.firebaseio.com",
+  projectId: "projeto-dm-2e7e3",
+  storageBucket: "projeto-dm-2e7e3.appspot.com",
+  messagingSenderId: "194667942228",
+  appId: "1:194667942228:web:2d54799fcd70449b31f8c1",
+  measurementId: "G-73SGXGM3ZM" 
+};
 
 @NgModule({
   declarations: [AppComponent],
